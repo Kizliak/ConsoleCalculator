@@ -10,11 +10,43 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Simple console calculator\n");
+            Console.Write("Input first operand: ");
+            double firstOperand = Calc.NumInput();
+            double secondOperand = 0;
+            Console.WriteLine();
 
-        }
-        public static void Printik(int x)
-        {
-            Console.WriteLine(x);
+            Console.Write("Input operator (+ - * / %): ");
+            bool isSecondNeed = Calc.OperatorInput(out string mathOperator);
+            if (isSecondNeed)
+            {
+                Console.Write("Input second operand: ");
+                secondOperand = Calc.NumInput();
+                Console.WriteLine();
+            }
+
+            double result = 0;
+            switch (mathOperator)
+            {
+                case "+":
+                    result = Calc.Plus(firstOperand, secondOperand);
+                    break;
+                case "-":
+                    result = Calc.Minus(firstOperand, secondOperand);
+                    break;
+                case "*":
+                    result = Calc.Multiply(firstOperand, secondOperand);
+                    break;
+                case "/":
+                    result = Calc.Divide(firstOperand, secondOperand);
+                    break;
+                case "%":
+                    result = Calc.RestOfDivide(firstOperand, secondOperand);
+                    break;
+            }
+
+            Console.WriteLine($"Your result is {result}");
+            Console.ReadLine();
         }
     }
 }
