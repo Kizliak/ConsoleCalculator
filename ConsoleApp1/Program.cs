@@ -10,6 +10,11 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
+
+        }
+        public static void Printik(int x)
+        {
+            Console.WriteLine(x);
         }
     }
 }
