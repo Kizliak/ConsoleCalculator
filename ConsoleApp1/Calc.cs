@@ -8,5 +8,6 @@ namespace ConsoleCalculator
 {
     public static class Calc
     {
+        // operations class
     }
 }
