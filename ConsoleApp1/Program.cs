@@ -16,7 +16,7 @@ namespace ConsoleCalculator
             double secondOperand = 0;
             Console.WriteLine();
 
-            Console.Write("Input operator (+ - * / %): ");
+            Console.Write("Input operator (+ - * / % sqrt ^ !): ");
             bool isSecondNeed = Calc.OperatorInput(out string mathOperator);
             if (isSecondNeed)
             {
@@ -42,6 +42,15 @@ namespace ConsoleCalculator
                     break;
                 case "%":
                     result = Calc.RestOfDivide(firstOperand, secondOperand);
+                    break;
+                case "sqrt":
+                    result = Calc.SqrtNewthon(firstOperand);
+                    break;
+                case "^":
+                    result = Calc.Power(firstOperand, secondOperand);
+                    break;
+                case "!":
+                    result = Calc.Factorial(firstOperand);
                     break;
             }
 

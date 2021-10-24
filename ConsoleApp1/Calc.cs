@@ -8,7 +8,85 @@ namespace ConsoleCalculator
 {
     public static class Calc
    {
-       public static double Plus(double x, double y)
+        public static double SqrtNewthon(double x)
+        {
+            if (x == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                bool minus = false;
+                if (x < 0)
+                {
+                    minus = true;
+                }
+                double tmp = x > 0 ? x : -x;
+                x = tmp;
+                while (true)
+                {
+                    double t = (x / tmp + tmp) / 2;
+                    if (Math.Abs(tmp - t) < 1E-10)
+                    {
+                        return minus == true ? -tmp : tmp;
+                    }
+                    tmp = t;
+                }
+            }
+        }
+
+        public static double Power(double x, double y)
+        {
+            if (x == 0 & y == 0)
+            {
+                Console.WriteLine("I am not able to power up zero to zero!");
+                Console.ReadLine();
+                System.Environment.Exit(0);
+                return 0;
+            }
+            double result = x;
+            if (Convert.ToInt32(y) == 0)
+            {
+                result = 1;
+            }
+            else if (y > 0)
+            {
+                for (int i = 1; i < Convert.ToInt32(y); i++)
+                {
+                    result *= x;
+                }
+            }
+            else
+            {
+                for (int i = Convert.ToInt32(y); i < 0; i++)
+                {
+                    result *= x;
+                }
+                result = 1 / result;
+            }
+            return result;
+        }
+
+        public static double Factorial(double x)
+        {
+            if (x == 0)
+            {
+                return 1;
+            }
+            else if (x < 0)
+            {
+                Console.WriteLine("Positive numbers only, can not calculate factorial!");
+                Console.ReadLine();
+                System.Environment.Exit(0);
+                return 0;
+            }
+            else
+            {
+                return x * Factorial(x - 1);
+            }
+        }
+
+        public static double Plus(double x, double y)
         {
             return x + y;
         }
